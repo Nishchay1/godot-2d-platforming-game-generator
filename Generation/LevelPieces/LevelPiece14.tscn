@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Generation/LevelPiece.gd" type="Script" id=1]
+[ext_resource path="res://Generation/LevelEditorTileMap.tscn" type="PackedScene" id=2]
+
+[node name="Node" type="Node"]
+script = ExtResource( 1 )
+
+[node name="LevelEditorTileMap" parent="." instance=ExtResource( 2 )]
+tile_data = PoolIntArray( 393235, 11, 0, 458767, 0, 262148, 458774, 0, 262148, 524298, 0, 262148, 589829, 0, 262148, 655360, 0, 262144, 655361, 0, 262146, 655385, 0, 262144, 655386, 0, 262146, 983040, 7, 0, 983041, 7, 0, 983042, 7, 0, 983043, 7, 0, 983044, 7, 0, 983045, 7, 0, 983046, 7, 0, 983047, 7, 0, 983048, 7, 0, 983049, 7, 0, 983050, 7, 0, 983051, 7, 0, 983052, 7, 0, 983053, 7, 0, 983054, 7, 0, 983055, 7, 0, 983056, 7, 0, 983057, 7, 0, 983058, 7, 0, 983059, 7, 0, 983060, 7, 0, 983061, 7, 0, 983062, 7, 0, 983063, 7, 0, 983064, 7, 0, 983065, 7, 0, 983066, 7, 0 )

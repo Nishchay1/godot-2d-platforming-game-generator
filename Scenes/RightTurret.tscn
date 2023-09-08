@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/RightTurret.gd" type="Script" id=1]
+[ext_resource path="res://Assets/enemy.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[node name="RightProjectileEnemy" type="StaticBody2D"]
+position = Vector2( 8, 16 )
+collision_layer = 4
+collision_mask = 7
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -8 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -8 )
+shape = SubResource( 1 )
+
+[node name="ProjectileOrigin" type="Position2D" parent="."]
+position = Vector2( 8, -8 )
+
+[node name="ShootTimer" type="Timer" parent="."]
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 1.42109e-14, -8 )
+scale = Vector2( 0.8, 0.8 )
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]
+[connection signal="screen_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

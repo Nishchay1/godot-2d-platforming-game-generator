@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/PlayerCamera.gd" type="Script" id=1]
+
+[node name="PlayerCamera" type="Camera2D"]
+limit_left = 0
+limit_top = 0
+limit_bottom = 225
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 10.0
+script = ExtResource( 1 )

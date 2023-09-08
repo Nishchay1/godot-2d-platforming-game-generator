@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends CanvasLayer
+
+
+var current_level
+var level_path
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	current_level = SaveSystem.load_level()
+	if current_level < 30:
+		level_path = \"res://Levels/Level\"+str(current_level+1)+\".tscn\"
+
+
+func _on_NextButton_pressed():
+	SceneChanger.change_scene(level_path)
+"
+
+[node name="TransitionScreen" type="CanvasLayer"]
+script = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+
+[node name="NextButton" type="Button" parent="VBoxContainer"]
+margin_top = 90.0
+margin_right = 400.0
+margin_bottom = 110.0
+text = "Next Level"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+margin_top = 114.0
+margin_right = 400.0
+margin_bottom = 134.0
+text = "Main Menu"
+
+[connection signal="pressed" from="VBoxContainer/NextButton" to="." method="_on_NextButton_pressed"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/AttackHitCheck.gd" type="Script" id=1]
+
+[node name="AttackHitCheck" type="Area2D"]
+collision_layer = 0
+collision_mask = 512
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[connection signal="area_entered" from="." to="." method="_on_AttackHitCheck_area_entered"]

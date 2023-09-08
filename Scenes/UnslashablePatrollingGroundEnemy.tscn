@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/StompChecker.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/BaseEnemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/UnslashablePatrollingGroundEnemy.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 2 )
+
+[node name="UnslashablePatrollingGroundEnemy" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+
+[node name="StompChecker" parent="." index="3" instance=ExtResource( 1 )]
+position = Vector2( 0, -8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompChecker" index="0"]
+shape = SubResource( 1 )
+
+[node name="RightGroundCheck" type="RayCast2D" parent="." index="4"]
+position = Vector2( 8, 8 )
+enabled = true
+cast_to = Vector2( 0, 5 )
+collision_mask = 4
+
+[node name="LeftGroundCheck" type="RayCast2D" parent="." index="5"]
+position = Vector2( -8, 8 )
+enabled = true
+cast_to = Vector2( 0, 5 )
+collision_mask = 4
+
+[connection signal="kill" from="StompChecker" to="." method="_on_StompChecker_kill"]

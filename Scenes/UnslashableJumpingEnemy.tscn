@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/BaseEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/StompChecker.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/UnslashableJumpingEnemy.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 6, 2 )
+
+[node name="UnslashableJumpingEnemy" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="StompChecker" parent="." index="3" instance=ExtResource( 2 )]
+position = Vector2( 0, -8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StompChecker" index="0"]
+shape = SubResource( 1 )
+
+[node name="JumpTimer" type="Timer" parent="." index="4"]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="kill" from="StompChecker" to="." method="_on_StompChecker_kill"]
+[connection signal="timeout" from="JumpTimer" to="." method="_on_JumpTimer_timeout"]

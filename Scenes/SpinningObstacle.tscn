@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/swinging_obstacle.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/SpinningObstacle.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/ObstacleHurtChecker.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/spinning_block.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 8.0
+height = 8.0
+
+[node name="SpinningObstacle" type="StaticBody2D"]
+position = Vector2( 8, 8 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="BlockSprite" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+
+[node name="SpinBase" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="SpinBase"]
+position = Vector2( 0, 32 )
+texture = ExtResource( 1 )
+
+[node name="ObstacleHurtChecker" parent="SpinBase" instance=ExtResource( 3 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SpinBase/ObstacleHurtChecker"]
+position = Vector2( 0, 52 )
+shape = SubResource( 1 )

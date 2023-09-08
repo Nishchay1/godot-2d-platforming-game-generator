@@ -1,0 +1,151 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Assets/jump.png" type="Texture" id=1]
+[ext_resource path="res://Assets/right.png" type="Texture" id=2]
+[ext_resource path="res://Assets/left.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/MobileControls.gd" type="Script" id=4]
+[ext_resource path="res://Assets/pause.png" type="Texture" id=5]
+[ext_resource path="res://Assets/attack.png" type="Texture" id=6]
+
+[node name="MobileControls" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.505882 )
+
+[node name="MenuButtons" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuButtons"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -63.0
+margin_top = -46.0
+margin_right = 63.0
+margin_bottom = 46.0
+
+[node name="ContinueButton" type="Button" parent="MenuButtons/VBoxContainer"]
+pause_mode = 2
+margin_right = 126.0
+margin_bottom = 20.0
+text = "Continue"
+
+[node name="SoundButton" type="Button" parent="MenuButtons/VBoxContainer"]
+pause_mode = 2
+margin_top = 24.0
+margin_right = 126.0
+margin_bottom = 44.0
+text = "Sound: ON"
+
+[node name="MusicButton" type="Button" parent="MenuButtons/VBoxContainer"]
+pause_mode = 2
+margin_top = 48.0
+margin_right = 126.0
+margin_bottom = 68.0
+text = "Music: ON"
+
+[node name="QuitButton" type="Button" parent="MenuButtons/VBoxContainer"]
+pause_mode = 2
+margin_top = 72.0
+margin_right = 126.0
+margin_bottom = 92.0
+text = "Quit"
+
+[node name="TouchButtons" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TouchButtons"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = -48.0
+margin_right = 108.0
+margin_bottom = -5.0
+grow_vertical = 0
+custom_constants/separation = 12
+
+[node name="Control" type="Control" parent="TouchButtons/HBoxContainer"]
+margin_right = 48.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+
+[node name="Left" type="TouchScreenButton" parent="TouchButtons/HBoxContainer/Control"]
+scale = Vector2( 0.6, 0.6 )
+normal = ExtResource( 3 )
+passby_press = true
+action = "left"
+
+[node name="Control2" type="Control" parent="TouchButtons/HBoxContainer"]
+margin_left = 60.0
+margin_right = 108.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+
+[node name="Right" type="TouchScreenButton" parent="TouchButtons/HBoxContainer/Control2"]
+scale = Vector2( 0.6, 0.6 )
+normal = ExtResource( 2 )
+passby_press = true
+action = "right"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TouchButtons"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -108.0
+margin_top = -48.0
+margin_right = -5.0
+margin_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+custom_constants/separation = 12
+alignment = 1
+
+[node name="Control" type="Control" parent="TouchButtons/HBoxContainer2"]
+margin_right = 48.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+
+[node name="Jump" type="TouchScreenButton" parent="TouchButtons/HBoxContainer2/Control"]
+scale = Vector2( 0.6, 0.6 )
+normal = ExtResource( 1 )
+action = "jump"
+
+[node name="Control2" type="Control" parent="TouchButtons/HBoxContainer2"]
+margin_left = 60.0
+margin_right = 108.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 48, 48 )
+
+[node name="Attack" type="TouchScreenButton" parent="TouchButtons/HBoxContainer2/Control2"]
+scale = Vector2( 0.6, 0.6 )
+normal = ExtResource( 6 )
+action = "attack"
+
+[node name="Control" type="Control" parent="TouchButtons"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -30.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = 30.0
+grow_horizontal = 0
+rect_min_size = Vector2( 30, 30 )
+
+[node name="Pause" type="TouchScreenButton" parent="TouchButtons/Control"]
+scale = Vector2( 0.6, 0.6 )
+normal = ExtResource( 5 )
+action = "jump"
+
+[connection signal="pressed" from="MenuButtons/VBoxContainer/ContinueButton" to="." method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="MenuButtons/VBoxContainer/SoundButton" to="." method="_on_SoundButton_pressed"]
+[connection signal="pressed" from="MenuButtons/VBoxContainer/MusicButton" to="." method="_on_MusicButton_pressed"]
+[connection signal="pressed" from="MenuButtons/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
+[connection signal="pressed" from="TouchButtons/Control/Pause" to="." method="_on_Pause_pressed"]

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/TileMap.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/MobileControls.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/LevelEnd.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/HealthPickUp.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=10]
+
+[node name="Level1" type="Node"]
+
+[node name="TileMap" parent="." instance=ExtResource( 2 )]
+tile_data = PoolIntArray( 49, 0, 0, 50, 0, 1, 51, 0, 2, 65585, 0, 65536, 65586, 0, 65537, 65587, 0, 65538, 131121, 0, 65536, 131122, 0, 65537, 131123, 0, 65538, 196657, 0, 65536, 196658, 0, 65537, 196659, 0, 65538, 262193, 0, 65536, 262194, 0, 65537, 262195, 0, 65538, 327729, 0, 65536, 327730, 0, 65537, 327731, 0, 65538, 393265, 0, 65536, 393266, 0, 65537, 393267, 0, 65538, 458801, 0, 65536, 458802, 0, 65537, 458803, 0, 65538, 524337, 0, 65536, 524338, 0, 65537, 524339, 0, 65538, 589873, 0, 65536, 589874, 0, 65537, 589875, 0, 65538, 655409, 0, 131072, 655410, 0, 131073, 655411, 0, 196618, 720947, 0, 65540, 786483, 0, 65540, 851968, 0, 262144, 851969, 0, 262145, 851970, 0, 262145, 851971, 0, 262145, 851972, 0, 262145, 851973, 0, 262145, 851974, 0, 262145, 851975, 0, 262145, 851976, 0, 262145, 851977, 0, 262145, 851978, 0, 262145, 851979, 0, 262145, 851980, 0, 262145, 851981, 0, 262145, 851982, 0, 262145, 851983, 0, 262145, 851984, 0, 262145, 851985, 0, 262145, 851986, 0, 262145, 851987, 0, 262145, 851988, 0, 262145, 851989, 0, 262145, 851990, 0, 262145, 851991, 0, 262145, 851992, 0, 262145, 851993, 0, 262145, 851994, 0, 262145, 851995, 0, 262145, 851996, 0, 262145, 851997, 0, 262145, 851998, 0, 262145, 851999, 0, 262145, 852000, 0, 262145, 852001, 0, 262145, 852002, 0, 262145, 852003, 0, 262145, 852004, 0, 262145, 852005, 0, 262145, 852006, 0, 262145, 852007, 0, 262145, 852008, 0, 262145, 852009, 0, 262145, 852010, 0, 262145, 852011, 0, 262145, 852012, 0, 262145, 852013, 0, 262145, 852014, 0, 262145, 852015, 0, 262145, 852016, 0, 262145, 852017, 0, 262145, 852018, 0, 262145, 852019, 0, 262160 )
+
+[node name="jOUKJ1FfZyY" parent="." instance=ExtResource( 10 )]
+position = Vector2( 40, 207 )
+
+[node name="G09Z83ltEsf" parent="." instance=ExtResource( 9 )]
+position = Vector2( 312, 200 )
+
+[node name="16S25449gAm" parent="." instance=ExtResource( 9 )]
+position = Vector2( 408, 200 )
+
+[node name="C5o1PcJwYq2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 792, 184 )
+
+[node name="WwzeViS29AQ" parent="." instance=ExtResource( 8 )]
+position = Vector2( 808, 184 )
+
+[node name="RLinEv1To0q" parent="." instance=ExtResource( 8 )]
+position = Vector2( 792, 200 )
+
+[node name="0Z1Y8TutRdl" parent="." instance=ExtResource( 8 )]
+position = Vector2( 808, 200 )
+
+[node name="MobileControls" parent="." instance=ExtResource( 5 )]
